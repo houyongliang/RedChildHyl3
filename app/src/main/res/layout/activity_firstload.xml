@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_firstload"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   >
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_firstload"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></android.support.v4.view.ViewPager>
+    <ImageButton
+        android:id="@+id/ib_firstload_pass"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/guide_pass"/>
+    <ImageButton
+        android:layout_alignParentBottom="true"
+       android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
+        android:id="@+id/ib_firstload_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/guide_start"
+        android:visibility="invisible"
+        />
+    <LinearLayout
+        android:id="@+id/ll_firstload_dot"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+    </LinearLayout>
+</RelativeLayout>

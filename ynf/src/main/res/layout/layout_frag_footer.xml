@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_footer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RadioGroup
+        android:id="@+id/rg_frag_footer"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <!--详情-->
+        <RadioButton
+            android:id="@+id/rb_pro_pic_frag_footer"
+            style="@style/BottonTabStyle"
+            android:text="产品详情" />
+        <!--参数-->
+        <RadioButton
+            android:id="@+id/rb_pro_detail_frag_footer"
+            style="@style/BottonTabStyle"
+            android:text="产品参数" />
+        <!--评价-->
+        <RadioButton
+            android:id="@+id/rb_pro_evaluate_frag_footer"
+            style="@style/BottonTabStyle"
+            android:text="评论" />
+
+
+    </RadioGroup>
+
+    <FrameLayout
+        android:id="@+id/fl_fg_footer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rg_frag_footer">
+
+    </FrameLayout>
+</RelativeLayout>

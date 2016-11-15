@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/aliwx_color_blue"
+    android:orientation="horizontal">
+    <CheckBox
+        android:id="@+id/cbox_shopping"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       android:background="@drawable/selector_checkbox_shopping"
+        android:layout_gravity="center_vertical"
+        android:button="@null"
+
+        />
+
+
+        <ImageView
+            android:id="@+id/iv_shoping"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@mipmap/ic_launcher" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_listitem_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lines="2"
+                android:text="商品名称"
+                android:textSize="20sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/tv_listitem_price"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="￥29.9"
+                    android:gravity="center"
+                    android:textColor="@color/colorBase" />
+
+                <TextView
+                    android:id="@+id/tv_listitem_num"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="数量：1"
+                    android:textColor="@color/colorBack" />
+
+                <!--动态加载图片-->
+                <LinearLayout
+                    android:id="@+id/ll_listitem_pics"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:orientation="horizontal">
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,50 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#55ffff00"
+    android:orientation="vertical"
+   >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#55ffff00"
+        android:orientation="vertical">
+        <TextView
+            android:layout_marginTop="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="制作人:"
+            android:textSize="60sp"
+            />
+        <TextView
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="侯永亮"
+            android:textSize="60sp"
+            />
+        <TextView
+            android:layout_marginTop="50dp"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="欢迎各位老师批评指正"
+            android:textSize="28sp"
+            />
+        <TextView
+            android:layout_marginTop="50dp"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="谢谢！"
+            android:textSize="50sp"
+            />
+
+
+
+    </LinearLayout>
+
+    <!-- TODO: Update blank fragment layout -->
+
+</FrameLayout>

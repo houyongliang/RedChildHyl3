@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#55ffff00">
+
+    <!-- 购物车界面 -->
+    <RelativeLayout
+        android:id="@+id/rl_top"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:text="确认订单" />
+
+        <ImageButton
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:gravity="center_vertical"
+            android:paddingRight="10dp"
+           android:src="@drawable/back_normal"
+            android:textColor="#fc6b87" />
+
+    </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/rl_bottom"
+        android:layout_below="@+id/rl_top">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.hyl.mis.hyl.view.CustomListView
+                android:id="@+id/lv_pay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                ></com.hyl.mis.hyl.view.CustomListView>
+            <include layout="@layout/include_payment" android:id="@+id/payment"></include>
+        </LinearLayout>
+    </ScrollView>
+
+
+    <RelativeLayout
+        android:id="@+id/rl_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:gravity="center_vertical">
+
+
+
+        <TextView
+            android:id="@+id/tv_totalprice_pay"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:gravity="center_vertical"
+            android:paddingRight="20dp"
+            android:text="实付：￥0.00" />
+
+        <Button
+
+            android:id="@+id/btn_pay"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="#fc6b87"
+            android:gravity="center"
+            android:text="付款"
+            android:textColor="#ffffff" />
+
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/item_cus_view"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:scaleType="center"></ImageView>
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="horizontal">-->
+<View
+    android:layout_width="match_parent"
+    android:layout_height="10dp"></View>
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:id="@+id/item_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/iv_more_main"
+                android:layout_width="100dp"
+                android:scaleType="centerInside"
+                android:layout_height="120dp"
+                android:src="@drawable/home_rank_list_more"
+                />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+</LinearLayout>

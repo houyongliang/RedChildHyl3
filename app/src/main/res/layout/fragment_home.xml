@@ -1,0 +1,33 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#66ff0000"
+    tools:context="com.hhzmy.fragment.HomeFragment">
+
+    <include
+        android:id="@+id/inclu"
+        layout="@layout/include_home_head"></include>
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_home_loop"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="#00ff00"
+       android:layout_below="@+id/inclu"></android.support.v4.view.ViewPager>
+    <LinearLayout
+        android:id="@+id/ll_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignRight="@id/vp_home_loop"
+        android:layout_alignBottom="@id/vp_home_loop"></LinearLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/vp_home_loop"
+        android:background="#ff0000"
+        ></android.support.v7.widget.RecyclerView>
+</RelativeLayout>

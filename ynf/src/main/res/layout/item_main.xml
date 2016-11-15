@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_item_bigest"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/item_main_iv"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:src="@drawable/btn_tab_user_selector" />
+
+        <View
+            android:id="@+id/line1"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#66000000"></View>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/line2"
+        android:layout_width="100dp"
+        android:layout_height="1dp"
+        android:background="#66000000"></View>
+
+    <TextView
+        android:id="@+id/item_main_tv_name"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="2"
+        android:textSize="10sp"
+        android:text="" />
+
+        <LinearLayout
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/item_main_tv_price"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:gravity="center"
+            android:textSize="10sp"
+            android:textColor="#aaff0000"
+            android:text="" />
+
+        <TextView
+
+            android:id="@+id/item_main_tv_marketprice"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:textSize="10sp"
+         android:textColor="#aaffffff"
+            android:text="" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

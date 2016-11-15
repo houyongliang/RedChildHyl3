@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rl_header"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+
+        <ImageView
+            android:id="@+id/iv_back_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/back_normal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="商品详情"
+            android:textSize="20dp" />
+
+        <ImageView
+            android:id="@+id/iv_2shoping_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/iv_share_content"
+            android:layout_marginRight="45dp"
+            android:src="@drawable/goods_shopping_cart" />
+
+        <ImageView
+            android:id="@+id/iv_share_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:clickable="true"
+            android:src="@drawable/share_normal" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorBack"></View>
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/ll_bottom"
+        android:layout_below="@+id/rl_header">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/lv_header"
+                layout="@layout/layout_picsplay_header"></include>
+
+            <com.hyl.mis.hyl.view.CustomListView
+                android:id="@+id/lv_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+               ></com.hyl.mis.hyl.view.CustomListView>
+
+            <include
+                android:id="@+id/lv_footer"
+                layout="@layout/layout_frag_footer"></include>
+        </LinearLayout>
+
+    </ScrollView>
+
+
+    <LinearLayout
+        android:id="@+id/ll_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4">
+
+            <TextView
+                android:id="@+id/tv_service_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/aliwx_white"
+                android:drawableLeft="@drawable/public_contact_service_icon"
+                android:drawablePadding="10dp"
+                android:gravity="center"
+                android:text="客服"
+                android:textColor="@color/colorBack" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_addshop_content"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="@color/color_button_yellow"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="进入购物车"
+            android:textColor="@color/aliwx_white" />
+
+        <TextView
+            android:id="@+id/tv_shoping_content"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="@color/colorBase"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="立即购买"
+            android:textColor="@color/aliwx_white" />
+
+
+    </LinearLayout>
+
+</RelativeLayout>

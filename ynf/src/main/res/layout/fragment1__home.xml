@@ -1,0 +1,77 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#55ff0000"
+    android:orientation="vertical">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:text="御泥坊VIP商城"
+        android:textColor="#fc6b87"
+        android:textSize="15sp" />
+    <!--<View-->
+    <!--android:id="@+id/f1_home_refreshdown"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content" />-->
+
+    <ScrollView
+        android:id="@+id/f1_home_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:id="@+id/f1_home_llayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/f1_home_sc_vp"
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"></android.support.v4.view.ViewPager>
+
+                <LinearLayout
+                    android:id="@+id/f1_home_ad4_ll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/f1_home_sc_vp"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal"></LinearLayout>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/f1_home_ad5_ll"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:gravity="center"
+                android:orientation="horizontal"></LinearLayout>
+            <!--<include layout="@layout/week_hot"></include>-->
+
+
+            <com.hyl.mis.hyl.view.CustomListView
+                android:id="@+id/f1_home_cuslistView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </com.hyl.mis.hyl.view.CustomListView>
+
+
+            <com.hyl.mis.hyl.view.CustomGridView
+                android:id="@+id/f1_home2_cusGridView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:numColumns="2">
+            </com.hyl.mis.hyl.view.CustomGridView>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

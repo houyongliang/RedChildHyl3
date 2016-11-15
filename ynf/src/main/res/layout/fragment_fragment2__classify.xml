@@ -1,0 +1,79 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#5500ff00"
+    android:orientation="vertical">
+    <!--lsitview多条目展示-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/et_query_classfiy"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/tv_query_classfiy"
+            style="@style/TextViewNormalStyle"
+            android:text="搜索" />
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/icon_more_vip_left"
+                android:gravity="center_vertical"
+                android:text="商品分类" />
+
+            <com.hyl.mis.hyl.view.CustomGridView
+                android:id="@+id/gv_shop_justpic_classfiy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:numColumns="3"></com.hyl.mis.hyl.view.CustomGridView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/icon_more_vip_left"
+                android:gravity="center_vertical"
+                android:text="热门分类" />
+
+            <com.hyl.mis.hyl.view.CustomGridView
+                android:id="@+id/gv_hot_justtext_classfiy"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+
+                android:numColumns="3"></com.hyl.mis.hyl.view.CustomGridView>
+            <TextView
+                android:gravity="center_vertical"
+                android:drawableLeft="@drawable/icon_more_vip_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="热销商品"/>
+            <com.hyl.mis.hyl.view.CustomGridView
+                android:id="@+id/gv_hotgoods_mixture_classfiy"
+                android:layout_width="match_parent"
+                android:numColumns="2"
+                android:layout_height="wrap_content"></com.hyl.mis.hyl.view.CustomGridView>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+
+</LinearLayout>

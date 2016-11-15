@@ -1,0 +1,75 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#550000ff">
+
+    <!-- 购物车界面 -->
+    <RelativeLayout
+        android:id="@+id/rl_top"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="购物车" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="center_vertical"
+            android:paddingRight="10dp"
+            android:text="编辑"
+            android:textColor="#fc6b87" />
+
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/lv_shopping"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/rl_bottom"
+        android:layout_below="@+id/rl_top"></ListView>
+
+    <RelativeLayout
+        android:id="@+id/rl_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:gravity="center_vertical">
+
+        <CheckBox
+            android:id="@+id/cbox_all_shopping"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="全选" />
+
+        <TextView
+            android:id="@+id/tv_totalprice_shopping"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@+id/btn_account_shopping"
+            android:gravity="center"
+            android:paddingRight="20dp"
+            android:text="总计：￥0.00" />
+
+        <Button
+
+            android:id="@+id/btn_account_shopping"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="#fc6b87"
+            android:gravity="center"
+            android:text="结算"
+            android:textColor="#ffffff" />
+
+    </RelativeLayout>
+</RelativeLayout>
