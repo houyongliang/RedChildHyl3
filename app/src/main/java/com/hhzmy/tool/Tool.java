@@ -1,6 +1,8 @@
 package com.hhzmy.tool;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
@@ -10,6 +12,8 @@ import com.google.gson.reflect.TypeToken;
 import com.lidroid.xutils.BitmapUtils;
 
 import java.util.List;
+
+import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
 
 /**
  * Created by mis on 2016/11/9.
@@ -52,6 +56,14 @@ public class Tool {
     public static void displayImage(Context context,View v,String url){
         bitmapUtils = new BitmapUtils(context);
         bitmapUtils.display(v,url);
+    }
+
+    public static<T> void myStartActivity(Context acty,Class<T> type,String key,String value){
+        Intent intent=new Intent(acty,type);
+        if(key!=null){
+            intent.putExtra(key,value);
+        }
+        acty.startActivity(intent);
     }
 
 }

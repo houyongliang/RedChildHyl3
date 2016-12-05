@@ -6,9 +6,10 @@
     android:orientation="vertical">
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyview_first"
-        android:layout_width="match_parent"
+       android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:mipmap/sym_def_app_icon"/>
+        android:background="#55ff0000"
+        />
 
 
 </LinearLayout>

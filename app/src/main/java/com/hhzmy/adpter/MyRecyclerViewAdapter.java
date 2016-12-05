@@ -2,6 +2,7 @@ package com.hhzmy.adpter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,71 +62,6 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         this.list = list;
     }
 
-  /*  @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        if (viewType == ITEM_GRIDVIEW_ONE_TEXT_IMAGE) {
-            View view = LayoutInflater.from(context).inflate(R.layout.recyclerview_item_gridview_one, parent, false);
-            MyViewHolder myViewHolder = new MyViewHolder(view);
-            return myViewHolder;
-        } else {
-            View view = LayoutInflater.from(context).inflate(R.layout.recyclerview_item_hlistview_two, parent, false);
-            MyViewHolderTwo myViewHolderTwo = new MyViewHolderTwo(view);
-            return myViewHolderTwo;
-        }
-
-    }*/
-
-   /* @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        if(holder instanceof MyViewHolder ){
-            List<BeanHome.DataBean.TagBean> listOne = map.get(ITEM_GRIDVIEW_ONE_TEXT_IMAGE);
-            BeanHome.DataBean.TagBean tagBean = listOne.get(position);
-                        String url = "http://image1.suning.cn" + tagBean.getPicUrl();
-            Tool.displayImage(context, ((MyViewHolder) holder).iv, url);//展示图片数据
-            ((MyViewHolder) holder).tv.setText(tagBean.getElementName() + "");
-        }else if(holder instanceof MyViewHolderTwo){
-            List<BeanHome.DataBean.TagBean> listTwo = map.get(ITEM_GRIDVIEW_TWO_TIELE_IMAGE);
-            BeanHome.DataBean.TagBean tagBean = listTwo.get(position);
-//            BeanHome.DataBean.TagBean tagBean = list.get(position);
-            String url = "http://image1.suning.cn" + tagBean.getPicUrl();
-            Tool.displayImage(context, ((MyViewHolderTwo) holder).iv, url);//展示图片数据
-        }
-
-    }
-
-
-    @Override
-    public int getItemViewType(int position) {
-//        map.get
-        return super.getItemViewType(position);
-    }
-
-    @Override
-    public int getItemCount() {
-        return list==null?0:list.size();//三元运算符进行判断
-    }
-
-    public class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView tv;
-        ImageView iv;
-
-        public MyViewHolder(View itemView) {
-            super(itemView);
-            tv = (TextView) itemView.findViewById(R.id.tv_recyview_gridview_one);
-            iv = (ImageView) itemView.findViewById(R.id.iv_recyview_gridview_one);
-        }
-    }
-    public class MyViewHolderTwo extends RecyclerView.ViewHolder {
-
-        ImageView iv;
-
-        public MyViewHolderTwo(View itemView) {
-            super(itemView);
-            iv = (ImageView) itemView.findViewById(R.id.iv_recyview_hlistview_two);
-        }
-    }
-*/
-
 
     @Override
     public int getItemCount() {
@@ -144,6 +80,8 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         BeanHome.DataBean.TagBean tagBean = list.get(position);
         String url = "http://image1.suning.cn" + tagBean.getPicUrl();
+        Log.e("sdgsagdsdg", "onBindViewHolder: "+url );
+
         Tool.displayImage(context,( (MyViewHolder)holder).iv, url);//展示图片数据
         ( (MyViewHolder)holder).tv.setText(tagBean.getElementName() + "");
     }

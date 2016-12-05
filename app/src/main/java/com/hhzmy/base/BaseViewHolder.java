@@ -13,8 +13,14 @@ public class BaseViewHolder  extends RecyclerView.ViewHolder{
     public BaseViewHolder(View itemView,Context context) {
         super(itemView);
         this.context=context;
-    }
-    public void initData(Object data){
 
+    }
+
+
+    public void initData(String st,int index) {
+
+    }
+
+    public void initData(Object data, int index) {
     }
 }

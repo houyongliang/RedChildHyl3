@@ -1,6 +1,7 @@
 package com.hhzmy.fragment;
 
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -35,6 +36,7 @@ import com.hhzmy.bean.BeanHome;
 import com.hhzmy.httputil.OkHttp;
 import com.hhzmy.mis.redchildhyl.R;
 import com.hhzmy.tool.Tool;
+import com.lidroid.xutils.HttpUtils;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -42,6 +44,8 @@ import java.util.HashMap;
 import java.util.List;
 
 import okhttp3.Request;
+import pub.devrel.easypermissions.AfterPermissionGranted;
+import pub.devrel.easypermissions.EasyPermissions;
 
 import static android.R.attr.data;
 import static android.R.id.list;
@@ -126,19 +130,27 @@ public class HomeFragment extends BaseFragment implements ViewPager.OnPageChange
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         homeView = inflater.inflate(R.layout.fragment_home, container, false);
+        initView();//初始化
+
         return homeView;
     }
 
+
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        initView();//初始化
         initData();//初始化数据
         super.onActivityCreated(savedInstanceState);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
     }
 
     /**
      * 网络请求
      */
+
     private void initData() {
         OkHttp.getAsync(urlHome, new OkHttp.DataCallBack() {
 
@@ -165,13 +177,13 @@ public class HomeFragment extends BaseFragment implements ViewPager.OnPageChange
                     rv_home.setLayoutManager(new LinearLayoutManager(getActivity()));
                     HomeRecyclerViewAdapter mAdapter = new HomeRecyclerViewAdapter(getActivity(),beanHome);
                     rv_home.setAdapter(mAdapter);
-    //                    List<BeanHome.DataBean.TagBean> list_tag_two = data.get(1).getTag();
-    //                    List<BeanHome.DataBean.TagBean> list_tag_three = data.get(2).getTag();
-    //                    Log.e(TAG, "list_tag_two.size: "+list_tag_two.size() );
-    //                    map.put(0,list_tag_two);
-    //                    map.put(1,list_tag_three);
-    //                    MyRecyclerViewAdapter adapterOne = new MyRecyclerViewAdapter(getActivity(), map);
-    //                    rv_home.setAdapter(adapterOne);
+                    //                    List<BeanHome.DataBean.TagBean> list_tag_two = data.get(1).getTag();
+                    //                    List<BeanHome.DataBean.TagBean> list_tag_three = data.get(2).getTag();
+                    //                    Log.e(TAG, "list_tag_two.size: "+list_tag_two.size() );
+                    //                    map.put(0,list_tag_two);
+                    //                    map.put(1,list_tag_three);
+                    //                    MyRecyclerViewAdapter adapterOne = new MyRecyclerViewAdapter(getActivity(), map);
+                    //                    rv_home.setAdapter(adapterOne);
 
                 }
 
@@ -183,6 +195,8 @@ public class HomeFragment extends BaseFragment implements ViewPager.OnPageChange
      * 无限轮播
      */
     private void wuXianLunBo(List<BeanHome.DataBean> datas, int possion) {
+        /*防止无限轮播 越来越快*/
+        mHandler.removeMessages(0);
         dataBean = datas.get(possion);
         tag = dataBean.getTag();
         Log.e(TAG, "requestSuccess:" + tag.size());
@@ -293,5 +307,41 @@ public class HomeFragment extends BaseFragment implements ViewPager.OnPageChange
                 startActivity(intent);
                 break;
         }
+    }
+//权限处理
+    //扫描跳转Activity RequestCode
+    private static final int REQUEST_CODE_QRCODE_PERMISSIONS = 1;
+    @Override
+    public void onStart() {
+        super.onStart();
+//        requestCodeQrcodePermissions();
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this);
+    }
+
+
+    public void onPermissionsGranted(int requestCode, List<String> perms) {
+    }
+
+
+    public void onPermissionsDenied(int requestCode, List<String> perms) {
+    }
+
+    @AfterPermissionGranted(REQUEST_CODE_QRCODE_PERMISSIONS)
+    private void requestCodeQrcodePermissions() {
+//        String[] perms = {Manifest.permission.CAMERA};
+//        if (!EasyPermissions.hasPermissions(getActivity(), perms)) {
+//            EasyPermissions.requestPermissions(this, "扫描二维码需要打开相机和散光灯的权限", REQUEST_CODE_QRCODE_PERMISSIONS, perms);
+//        }
+    }
+
+    @Override
+    public void onDestroy() {
+
+        adapter=null;
+        super.onDestroy();
     }
 }

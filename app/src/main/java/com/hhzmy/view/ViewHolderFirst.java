@@ -1,7 +1,10 @@
 package com.hhzmy.view;
 
 import android.content.Context;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 
 import com.hhzmy.adpter.MyRecyclerViewAdapter;
@@ -24,15 +27,19 @@ public class ViewHolderFirst extends BaseViewHolder {
     public ViewHolderFirst(View itemView, Context context) {
         super(itemView, context);
         recyview_first = (RecyclerView) itemView.findViewById(R.id.recyview_first);
-        list = new ArrayList<BeanHome.DataBean.TagBean>();
+
     }
 
     @Override
-    public void initData(Object data) {
-        super.initData(data);
-        list.add((BeanHome.DataBean.TagBean) data);
+    public void initData(Object data,int index) {
+        super.initData(data,index);
+        list= (List<BeanHome.DataBean.TagBean>) data;
+
         if (adapter == null) {
-            adapter = new MyRecyclerViewAdapter(context, list);
+            adapter = new MyRecyclerViewAdapter(context,  list);
+            GridLayoutManager glm = new GridLayoutManager(context, 4);
+            glm.setOrientation(OrientationHelper.VERTICAL);
+            recyview_first.setLayoutManager(glm);
             recyview_first.setAdapter(adapter);
         } else {
             adapter.notifyDataSetChanged();

@@ -27,6 +27,7 @@ import static android.media.CamcorderProfile.get;
  */
 
 public class MyHomePagerAdapter extends PagerAdapter {
+    private String key="URL";
     private List<BeanHome.DataBean.TagBean> list;
     private Context context;
     /**拼接字符串*/
@@ -66,10 +67,12 @@ public class MyHomePagerAdapter extends PagerAdapter {
             Log.e(TAG, "instantiateItem: "+uUrl );
             bitmapUtils.display(iv_vp_home,uUrl);
             container.addView(view);
+            final String linkUrl = tagBean.getLinkUrl();
             iv_vp_home.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intent=new Intent(context, SpecificActivity.class);
+                    intent.putExtra(key,linkUrl);
                     context.startActivity(intent);
                 }
             });

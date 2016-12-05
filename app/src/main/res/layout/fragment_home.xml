@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#66ff0000"
+    android:background="#ffffff"
     tools:context="com.hhzmy.fragment.HomeFragment">
 
     <include
@@ -23,11 +23,13 @@
         android:orientation="horizontal"
         android:layout_alignRight="@id/vp_home_loop"
         android:layout_alignBottom="@id/vp_home_loop"></LinearLayout>
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_home"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/vp_home_loop"
-        android:background="#ff0000"
-        ></android.support.v7.widget.RecyclerView>
+        android:background="#FFFFFF"
+        android:layout_below="@+id/ll_home"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"></android.support.v7.widget.RecyclerView>
 </RelativeLayout>
