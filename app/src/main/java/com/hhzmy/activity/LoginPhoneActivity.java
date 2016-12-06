@@ -1,5 +1,6 @@
 package com.hhzmy.activity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
@@ -26,14 +27,14 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class LoginPhoneActivity extends AppCompatActivity implements View.OnClickListener {
+    String text = "同意苏宁易购会员章程和易付宝协议";
 
-
-    @BindView(R.id.tv_loginphone_name)
-    TextView tvLoginphoneName;
-    @BindView(R.id.et_loginphone_name)
-    EditText etLoginphoneName;
-    @BindView(R.id.iv_clean_loginphone_cont_name)
-    ImageView ivCleanLoginphoneContName;
+    @BindView(R.id.tv_login_name)
+    TextView tvLoginName;
+    @BindView(R.id.et_login_name)
+    EditText etLoginName;
+    @BindView(R.id.iv_clean_cont_name)
+    ImageView ivCleanContName;
     @BindView(R.id.cb_loginphone)
     CheckBox cbLoginphone;
     @BindView(R.id.tv_loginphone)
@@ -42,6 +43,7 @@ public class LoginPhoneActivity extends AppCompatActivity implements View.OnClic
     Button btLoginpassNext;
     @BindView(R.id.activity_login)
     LinearLayout activityLogin;
+    private String etName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,12 +55,21 @@ public class LoginPhoneActivity extends AppCompatActivity implements View.OnClic
     }
 
     private void initEvent() {
-        etLoginphoneName.setOnClickListener(this);
-        ivCleanLoginphoneContName.setOnClickListener(this);
         btLoginpassNext.setOnClickListener(this);
+        ivCleanContName.setOnClickListener(this);
+
         cbLoginphone.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(!isChecked){
+                    btLoginpassNext.setEnabled(false);
+                    btLoginpassNext.setBackgroundColor(Color.WHITE);
+                }else{
+                    if(ivCleanContName.getVisibility()==View.VISIBLE){
+                        btLoginpassNext.setEnabled(true);
+                        btLoginpassNext.setBackgroundColor(Color.RED);
+                    }
+                }
 
             }
         });
@@ -74,6 +85,9 @@ public class LoginPhoneActivity extends AppCompatActivity implements View.OnClic
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (s == null || s.length() == 0)
                     return;
+               /*判断是只输入 数字，如果输入不是数字则提示信息--不能输入空格，*/
+
+
                 StringBuilder sb = new StringBuilder();
                 for (int i = 0; i < s.length(); i++) {
                     if (i != 3 && i != 8 && s.charAt(i) == ' ') {
@@ -99,35 +113,52 @@ public class LoginPhoneActivity extends AppCompatActivity implements View.OnClic
                             index--;
                         }
                     }
-                    etLoginphoneName.setText(sb.toString());
-                    etLoginphoneName.setSelection(index);
+                    etLoginName.setText(sb.toString());
+                    etLoginName.setSelection(index);
 
                 }
             }
 
             @Override
             public void afterTextChanged(Editable s) {
-                if (s.length() == 0) {
-                    ivCleanLoginphoneContName.setVisibility(View.GONE);/*设置密码不可见*/
+                if (s.length() == 0||s.length()<13) {
+                    ivCleanContName.setVisibility(View.GONE);/*设置密码不可见*/
+                    btLoginpassNext.setEnabled(false);
+                    btLoginpassNext.setBackgroundColor(Color.WHITE);
+                } else if(s.length()>=13){
+                    ivCleanContName.setVisibility(View.VISIBLE);/*设置为可见*/
+                    /*对登陆按钮可点击进行判断*/
+                        if(cbLoginphone.isChecked()){
+                            btLoginpassNext.setEnabled(true);
+                            btLoginpassNext.setBackgroundColor(Color.RED);
+                        }
 
-                } else {
-                    ivCleanLoginphoneContName.setVisibility(View.VISIBLE);/*设置为可见*/
+
+
                 }
 
             }
         };
-        etLoginphoneName.addTextChangedListener(watcher);
-        String text="";
-        SpannableString span=new SpannableString(text);
-        Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
-        span.setSpan(new URLSpan("https://pay.suning.com/epp-paycore/pay/static/quickPayRelatedServiceContract.html"),2,8,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                span.setSpan(new ForegroundColorSpan(this.getResources().getColor(R.color.colorAccent)),2,8, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        span.setSpan(new URLSpan("http://res.m.suning.com/project/newuser_redpacket/member_agreement.html"),11,16,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                span.setSpan(new ForegroundColorSpan(this.getResources().getColor(R.color.colorAccent)),11,16, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        etLoginName.addTextChangedListener(watcher);
+
+        addSpen();
+
+
+
+    }
+
+    private void addSpen() {
+
+
+        SpannableString span = new SpannableString(text);
+
+
+        span.setSpan(new URLSpan("http://res.m.suning.com/project/newuser_redpacket/member_agreement.html"), 2, 10, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        span.setSpan(new ForegroundColorSpan(this.getResources().getColor(R.color.colorAccent)), 2, 10, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        span.setSpan(new URLSpan("http://res.m.suning.com/project/newuser_redpacket/member_agreement.html"), 11, 16, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        span.setSpan(new ForegroundColorSpan(this.getResources().getColor(R.color.colorAccent)), 11, 16, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         tvLoginphone.setMovementMethod(new LinkMovementMethod());
         tvLoginphone.setText(span);
-
-
     }
 
     @Override
@@ -135,21 +166,24 @@ public class LoginPhoneActivity extends AppCompatActivity implements View.OnClic
         switch (v.getId()) {
 
             case R.id.bt_loginpass_next:
-                String etFName = etLoginphoneName.getText().toString();
-                if(!LoginUtil.isMobileNO(this,etFName)){
+                  /*获取登录名字，并对 登陆的手机号进行正则验证，去掉中间和首尾空格*/
+                etName = etLoginName.getText().toString().replaceAll(" ", "").trim();
 
-                }else{
-                    if(cbLoginphone.isChecked()){
+                if (!LoginUtil.isMobileNO(this, etName)) {
 
-                    }else{
-                        Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
+                } else {
+                    if (cbLoginphone.isChecked()) {
+
+                    } else {
+                        Toast.makeText(this, "您必须同意苏宁服务条款后，才能提交注册", Toast.LENGTH_SHORT).show();
+
                     }
                 }
 
                 break;
 
-            case R.id.iv_clean_loginphone_cont_name:
-                etLoginphoneName.setText("");
+            case R.id.iv_clean_cont_name:
+                etLoginName.setText("");
                 break;
 
 

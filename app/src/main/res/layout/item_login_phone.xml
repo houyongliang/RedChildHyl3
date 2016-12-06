@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:gravity="center_vertical">
+
+
+
+        <TextView
+            android:id="@+id/tv_login_name"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:gravity="center_vertical"
+            android:text="手机号"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/et_login_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5sp"
+            android:layout_toRightOf="@+id/tv_login_name"
+            android:ems="20"
+            android:digits="0123456789"
+            android:hint="手机号/邮箱/用户名/门店会员卡"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:maxLength="13"
+            android:textColorHint="#cbcbcb" />
+        <!--android:singleLine="true"-->
+        <ImageView
+            android:id="@+id/iv_clean_cont_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/btn_new_redpackage"
+            android:clickable="true"
+            android:visibility="gone" />
+
+</RelativeLayout>
+
+

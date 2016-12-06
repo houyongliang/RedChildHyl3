@@ -33,6 +33,18 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <!-- SD卡读取权限，用户写入离线定位数据 -->
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <!--第三方 qq 登陆 权限-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <uses-permission android:name="android.permission.SET_DEBUG_APP" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+
+
 
     <application
         android:name="com.hhzmy.activity.BaseApplication"
@@ -44,7 +56,11 @@
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="KjgSbnhq6RAr8jyoS7VR75o1gg7lzlX3" />
-
+        <!--集成 有盟-->
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="58466af66e27a47901001e04" >
+        </meta-data>
         <activity android:name="com.hhzmy.activity.MainActivity" />
         <activity android:name="com.hhzmy.activity.SplashActivity" />
         <activity android:name="com.hhzmy.activity.FirstloadActivity" />
@@ -77,8 +93,56 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.hhzmy.activity.LoginPhoneActivity" />
-        <activity android:name="com.hhzmy.activity.LoginPassActivity"></activity>
+        <activity android:name="com.hhzmy.activity.LoginPhoneActivity">
+
+        </activity>
+        <activity android:name="com.hhzmy.activity.LoginPassActivity" />
+        <activity android:name="com.hhzmy.activity.LoginPasswordActivity"></activity>
+
+        <!--有道 qq 集成-->
+        <activity
+            android:name="com.umeng.qq.tencent.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="tencent100424468" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.umeng.qq.tencent.AssistActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="orientation|keyboardHidden|screenSize"/>
+        <!--微博 sina-->
+        <activity
+            android:name="com.hhzmy.youmeng.WBShareActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser"
+            android:configChanges="keyboardHidden|orientation"
+            android:windowSoftInputMode="adjustResize"
+            android:exported="false" >
+        </activity>
+     <!--   <service android:name="com.sina.weibo.sdk.net.DownloadService"
+            android:exported="false"></service>-->
+
+        <activity
+            android:name="com.hhzmy.youmeng.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
     </application>
 
 </manifest>
