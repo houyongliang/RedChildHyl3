@@ -68,7 +68,7 @@
                 android:textColorHint="#cbcbcb" />
             <!--android:singleLine="true"-->
             <ImageView
-                android:id="@+id/iv_clean_cont_name"
+                android:id="@+id/iv_clean_cont_namess"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
@@ -171,6 +171,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="50dp"
+        android:clickable="true"
         android:src="@mipmap/btn_register_normal" />
 
     <LinearLayout
@@ -207,8 +208,14 @@
                 android:background="@color/colorPrimaryDark"></View>
         </LinearLayout>
 
-        <include layout="@layout/item_thread_other_login"></include>
 
+        <include layout="@layout/item_thread_other_login"></include>
+        <include layout="@layout/item_thread_other_login_share"></include>
+        <ImageView
+            android:id="@+id/iv_showQQ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
 
     </LinearLayout>
 

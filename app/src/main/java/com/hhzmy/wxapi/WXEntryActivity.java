@@ -1,4 +1,4 @@
-package com.hhzmy.youmeng;
+package com.hhzmy.wxapi;
 
 
 import com.umeng.weixin.callback.WXCallbackActivity;

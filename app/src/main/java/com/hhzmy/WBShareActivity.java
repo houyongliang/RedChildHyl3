@@ -1,4 +1,4 @@
-package com.hhzmy.youmeng;
+package com.hhzmy;
 
 import com.umeng.socialize.media.WBShareCallBackActivity;
 

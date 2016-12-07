@@ -1,6 +1,7 @@
 package com.hhzmy.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -13,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import com.baidu.platform.comapi.map.I;
 import com.hhzmy.fragment.ClassFragment;
 import com.hhzmy.fragment.HomeFragment;
 import com.hhzmy.fragment.MyebuyFragment;
@@ -27,8 +29,9 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends FragmentActivity implements RadioGroup.OnCheckedChangeListener {
 
-
-
+    private final  static String GET_USER_FOR_THREAD_IPG="com.hhzmy.activity.pic";
+    private final  static String GET_USER_FOR_THREAD_NAME="com.hhzmy.activity.name";
+    private final  static String GET_USER_FOR_THREAD_GENDER="com.hhzmy.activity.gender";
     private RadioGroup rg_mian;
     private FrameLayout fl_mian;
     private List<Fragment> list_fg;
@@ -40,6 +43,9 @@ public class MainActivity extends FragmentActivity implements RadioGroup.OnCheck
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+//        String ipg = getIntent().getStringExtra(GET_USER_FOR_THREAD_IPG);
+//        String name = getIntent().getStringExtra(GET_USER_FOR_THREAD_NAME);
+//        String gender = getIntent().getStringExtra(GET_USER_FOR_THREAD_GENDER);
 
         initView();
         initData();
@@ -77,9 +83,6 @@ public class MainActivity extends FragmentActivity implements RadioGroup.OnCheck
     private void initView() {
         fl_mian = (FrameLayout) findViewById(R.id.fl_main);
         rg_mian = (RadioGroup) findViewById(R.id.rg_main);
-
-
-
     }
 
 
@@ -102,4 +105,12 @@ public class MainActivity extends FragmentActivity implements RadioGroup.OnCheck
 
         }
     }
+
+//    public static Intent toMainActivity(Context context,String str){
+//        Intent intent=new Intent(context,MainActivity.class);
+//        intent.putExtra(GET_USER_FOR_THREAD_IPG,str);
+//        intent.putExtra(GET_USER_FOR_THREAD_NAME,str);
+//        intent.putExtra(GET_USER_FOR_THREAD_GENDER,str);
+//        return  intent;
+//    }
 }

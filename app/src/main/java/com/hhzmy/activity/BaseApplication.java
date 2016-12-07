@@ -23,7 +23,9 @@ import static com.baidu.location.b.g.I;
 
 public class BaseApplication extends Application {
     {
-        PlatformConfig.setWeixin("wx967daebe835fbeac", "5bb696d9ccd75a38c8a0bfe0675559b3");
+        //微信 wx12342956d1cab4f9,a5ae111de7d9ea137e88a5e02c07c94d
+        PlatformConfig.setWeixin("wxdc1e388c3822c80b", "3baf1193c85774b3fd9d18447d76cab0");
+        //新浪微博
         PlatformConfig.setSinaWeibo("3921700954", "04b48b094faeb16683c32669824ebdad");
         PlatformConfig.setQQZone("100424468", "c7394704798a158208a74ab60104f0ba");
 
@@ -37,11 +39,11 @@ public class BaseApplication extends Application {
         SDKInitializer.initialize(getApplicationContext());
         /*初始化ImageLoader*/
         //开启debug模式，方便定位错误，具体错误检查方式可以查看http://dev.umeng.com/social/android/quick-integration的报错必看，正式发布，请关闭该模式
-        Config.DEBUG = true;
+
         UMShareAPI.get(this);
 //        Config.REDIRECT_URL = "您新浪后台的回调地址";
         Config.isUmengSina=false;
-
+//        Config.DEBUG = true;
 
     }
 }

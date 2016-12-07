@@ -32,6 +32,18 @@ public class Utils {
         return sp.getBoolean(key, false);
     }
 
+    public static void putSPString(Context context, String key, String value) {
+        SharedPreferences sp = context.getSharedPreferences("isFirest", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putString(key, value);
+        editor.commit();
+    }
+
+    public static String getSPString(Context context, String key) {
+        SharedPreferences sp = context.getSharedPreferences("isFirest", Context.MODE_PRIVATE);
+        return sp.getString(key, "");
+    }
+
     public static String stream2String(InputStream in) throws IOException {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         int length = 0;
