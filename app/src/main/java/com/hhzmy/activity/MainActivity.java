@@ -29,9 +29,7 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends FragmentActivity implements RadioGroup.OnCheckedChangeListener {
 
-    private final  static String GET_USER_FOR_THREAD_IPG="com.hhzmy.activity.pic";
-    private final  static String GET_USER_FOR_THREAD_NAME="com.hhzmy.activity.name";
-    private final  static String GET_USER_FOR_THREAD_GENDER="com.hhzmy.activity.gender";
+
     private RadioGroup rg_mian;
     private FrameLayout fl_mian;
     private List<Fragment> list_fg;

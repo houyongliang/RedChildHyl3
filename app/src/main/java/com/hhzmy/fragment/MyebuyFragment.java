@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.hhzmy.activity.BaiduMapActivity;
 import com.hhzmy.base.BaseFragment;
 import com.hhzmy.bean.LoginThread;
+import com.hhzmy.bean.User;
 import com.hhzmy.httputil.Utils;
 import com.hhzmy.mis.redchildhyl.R;
 import com.hhzmy.tool.Tool;
@@ -22,9 +23,12 @@ import com.hhzmy.tool.Tool;
 
 import org.greenrobot.eventbus.EventBus;
 
+import java.security.Provider;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static com.baidu.location.b.g.U;
 import static com.hhzmy.httputil.Utils.getSPString;
 
 /**
@@ -91,6 +95,7 @@ public class MyebuyFragment extends BaseFragment implements View.OnClickListener
             tvFragMyName.append("   "+ loginThread.gender);
 
         }
+
 //        EventBus.getDefault().cancelEventDelivery(LoginThread.class) ;
 //        EventBus.getDefault().register(this);
     }

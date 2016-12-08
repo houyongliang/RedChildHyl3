@@ -2,6 +2,7 @@ package com.hhzmy.util;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 import android.widget.Toast;
 
 import java.util.regex.Matcher;
@@ -24,6 +25,7 @@ public class LoginUtil {
     */
         if (TextUtils.isEmpty(mobiles)) {
 //            Toast.makeText(context, "用户名不能为空", Toast.LENGTH_SHORT).show();
+
             return false;
         } else {
             //判断手机格式是否正确
@@ -46,4 +48,5 @@ public class LoginUtil {
 
 
     }
+
 }

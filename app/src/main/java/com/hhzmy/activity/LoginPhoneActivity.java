@@ -1,15 +1,18 @@
 package com.hhzmy.activity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.SpannableString;
 import android.text.Spanned;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.URLSpan;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -169,11 +172,30 @@ public class LoginPhoneActivity extends AppCompatActivity implements View.OnClic
                   /*获取登录名字，并对 登陆的手机号进行正则验证，去掉中间和首尾空格*/
                 etName = etLoginName.getText().toString().replaceAll(" ", "").trim();
 
-                if (!LoginUtil.isMobileNO(this, etName)) {
-
-                } else {
+//                if (!LoginUtil.isMobileNO(this, etName)) {
+//
+//                } else {
+//                    if (cbLoginphone.isChecked()) {
+//
+//                    } else {
+//                        Toast.makeText(this, "您必须同意苏宁服务条款后，才能提交注册", Toast.LENGTH_SHORT).show();
+//
+//                    }
+//                }
+                if (TextUtils.isEmpty(etName))
+                {
+                    Toast.makeText(this,"请输入手机号",Toast.LENGTH_SHORT).show();
+                    etLoginName.getText().clear();
+                }
+                else if (etName.length()!=11)
+                {
+                    Log.e("phoneNum.getText()",etLoginName.getText().toString().length()+"");
+                    etLoginName.getText().clear();
+                    Toast.makeText(this,"输入有误，请重新输入",Toast.LENGTH_SHORT).show();
+                }else{
                     if (cbLoginphone.isChecked()) {
-
+                        Intent intent = LoginPasswordActivity.toLoginPasswordActivity(this, etName);
+                        startActivity(intent);
                     } else {
                         Toast.makeText(this, "您必须同意苏宁服务条款后，才能提交注册", Toast.LENGTH_SHORT).show();
 
@@ -185,6 +207,7 @@ public class LoginPhoneActivity extends AppCompatActivity implements View.OnClic
             case R.id.iv_clean_cont_name:
                 etLoginName.setText("");
                 break;
+
 
 
         }

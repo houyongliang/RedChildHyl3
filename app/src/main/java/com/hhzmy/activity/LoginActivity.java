@@ -18,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hhzmy.bean.LoginThread;
+import com.hhzmy.bean.User;
 import com.hhzmy.httputil.OkHttp;
 import com.hhzmy.httputil.Utils;
 import com.hhzmy.mis.redchildhyl.R;
@@ -221,6 +222,15 @@ public class LoginActivity extends AppCompatActivity implements ImageView.OnClic
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        User user =  EventBus.getDefault().getStickyEvent(User.class);
+        if(user !=null){
+           etLoginName.setText(user.tel);
+           etLoginPassword.setText(user.password);
+        }
+    }
 
     @Override
     public void onClick(View v) {
@@ -230,7 +240,8 @@ public class LoginActivity extends AppCompatActivity implements ImageView.OnClic
                     Toast.makeText(this, "输入账号密码不正确请重新输入", Toast.LENGTH_SHORT).show();
                 } else {
                     sendPost(etName, etPassword);
-                    startActivity(new Intent(this, LoginPhoneActivity.class));/*跳转到主页面*/
+                    startActivity(new Intent(this, MainActivity.class));/*跳转到主页面*/
+//                    finish();
                 }
 
                 break;
@@ -258,7 +269,7 @@ public class LoginActivity extends AppCompatActivity implements ImageView.OnClic
                 break;
             case R.id.iv_register:
                 startActivity(new Intent(this, LoginPhoneActivity.class));
-
+                break;
             case R.id.tv_login_qq:
 
                 UMShareAPI mShareAPI = UMShareAPI.get(this);
@@ -277,6 +288,7 @@ public class LoginActivity extends AppCompatActivity implements ImageView.OnClic
             case R.id.tv_login_qq_share:
                 new ShareAction(this).setPlatform(SHARE_MEDIA.QQ)
                         .withText("你真是太帅了。。")
+                        .withTitle("真的么？")
                         .setCallback(umShareListener)
                         .share();
 
@@ -284,6 +296,7 @@ public class LoginActivity extends AppCompatActivity implements ImageView.OnClic
             case R.id.tv_login_weixin_share:
                 new ShareAction(this).setPlatform(SHARE_MEDIA.WEIXIN)
                         .withText("hello")
+
                         .setCallback(umShareListener)
                         .share();
                 break;
