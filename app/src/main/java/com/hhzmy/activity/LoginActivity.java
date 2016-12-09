@@ -41,6 +41,7 @@ import java.util.Set;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static com.hhzmy.httputil.Utils.getSPString;
 import static com.hhzmy.util.LoginUtil.isMobileNO;
 
 public class LoginActivity extends AppCompatActivity implements ImageView.OnClickListener {
@@ -225,9 +226,14 @@ public class LoginActivity extends AppCompatActivity implements ImageView.OnClic
     protected void onResume() {
         super.onResume();
         User user =  EventBus.getDefault().getStickyEvent(User.class);
-        if(user !=null){
-           etLoginName.setText(user.tel);
-           etLoginPassword.setText(user.password);
+//        if(user !=null){
+//           etLoginName.setText(user.tel);
+//           etLoginPassword.setText(user.password);
+//        }
+
+        if(Utils.getSP(this, LoginPasswordActivity.KEY_ISCOMMIT)){
+            etLoginName.setText( Utils.getSPString(this,LoginPasswordActivity.KEY_TEL));
+            etLoginPassword.setText( Utils.getSPString(this,LoginPasswordActivity.KEY_PASSWORD));
         }
     }
 

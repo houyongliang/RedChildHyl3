@@ -1,10 +1,10 @@
 package com.hhzmy.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,23 +13,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.hhzmy.activity.BaiduMapActivity;
+import com.hhzmy.activity.XunFeiActivity;
 import com.hhzmy.base.BaseFragment;
 import com.hhzmy.bean.LoginThread;
-import com.hhzmy.bean.User;
-import com.hhzmy.httputil.Utils;
 import com.hhzmy.mis.redchildhyl.R;
 import com.hhzmy.tool.Tool;
 
-
 import org.greenrobot.eventbus.EventBus;
-
-import java.security.Provider;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
-import static com.baidu.location.b.g.U;
-import static com.hhzmy.httputil.Utils.getSPString;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -43,6 +36,8 @@ public class MyebuyFragment extends BaseFragment implements View.OnClickListener
     ImageView ivFragMyHeadPic;
     @BindView(R.id.tv_fragMy_name)
     TextView tvFragMyName;
+    @BindView(R.id.bt_xunfei)
+    Button btXunfei;
     private LoginThread loginThread;
 
     public MyebuyFragment() {
@@ -57,6 +52,7 @@ public class MyebuyFragment extends BaseFragment implements View.OnClickListener
         View view = inflater.inflate(R.layout.fragment_myebuy, container, false);
         ButterKnife.bind(this, view);
         btBaidumap.setOnClickListener(this);
+        btXunfei.setOnClickListener(this);
 //        String pic=Utils.getSPString(getActivity(),"profile_image_url");
 //        String name=Utils.getSPString(getActivity(),"screen_name");
 //        String gender=Utils.getSPString(getActivity(),"gender");
@@ -72,7 +68,6 @@ public class MyebuyFragment extends BaseFragment implements View.OnClickListener
 //        }
 
 
-
         return view;
     }
 
@@ -82,6 +77,9 @@ public class MyebuyFragment extends BaseFragment implements View.OnClickListener
             case R.id.bt_baidumap:
                 Tool.myStartActivity(getActivity(), BaiduMapActivity.class, null, null);
                 break;
+            case R.id.bt_xunfei:
+                startActivity(new Intent(getActivity(), XunFeiActivity.class));
+                break;
         }
     }
 
@@ -89,10 +87,10 @@ public class MyebuyFragment extends BaseFragment implements View.OnClickListener
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         loginThread = EventBus.getDefault().getStickyEvent(LoginThread.class);
-        if(loginThread !=null){
-            Tool.displayImage(getActivity(),ivFragMyHeadPic, loginThread.url);
+        if (loginThread != null) {
+            Tool.displayImage(getActivity(), ivFragMyHeadPic, loginThread.url);
             tvFragMyName.setText(loginThread.name);
-            tvFragMyName.append("   "+ loginThread.gender);
+            tvFragMyName.append("   " + loginThread.gender);
 
         }
 

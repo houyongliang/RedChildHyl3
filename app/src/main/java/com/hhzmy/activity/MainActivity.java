@@ -20,6 +20,7 @@ import com.hhzmy.fragment.HomeFragment;
 import com.hhzmy.fragment.MyebuyFragment;
 import com.hhzmy.fragment.ShoppingFragment;
 import com.hhzmy.mis.redchildhyl.R;
+import com.umeng.analytics.MobclickAgent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,6 +45,8 @@ public class MainActivity extends FragmentActivity implements RadioGroup.OnCheck
 //        String ipg = getIntent().getStringExtra(GET_USER_FOR_THREAD_IPG);
 //        String name = getIntent().getStringExtra(GET_USER_FOR_THREAD_NAME);
 //        String gender = getIntent().getStringExtra(GET_USER_FOR_THREAD_GENDER);
+        MobclickAgent.startWithConfigure(new MobclickAgent.UMAnalyticsConfig(this, "584a8e3a2ae85b37e800083a", "hyl"));
+
 
         initView();
         initData();
@@ -111,4 +114,16 @@ public class MainActivity extends FragmentActivity implements RadioGroup.OnCheck
 //        intent.putExtra(GET_USER_FOR_THREAD_GENDER,str);
 //        return  intent;
 //    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
+    }
 }

@@ -4,6 +4,8 @@ import android.app.Application;
 
 import com.baidu.mapapi.SDKInitializer;
 import com.hhzmy.util.ImageLoaderUtil;
+import com.iflytek.cloud.SpeechConstant;
+import com.iflytek.cloud.SpeechUtility;
 import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiscCache;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -19,6 +21,7 @@ import cn.jpush.android.api.JPushInterface;
 import cn.smssdk.SMSSDK;
 
 import static com.baidu.location.b.g.I;
+import static com.umeng.socialize.utils.DeviceConfig.context;
 
 /**
  * Created by mis on 2016/11/17.
@@ -38,6 +41,7 @@ public class BaseApplication extends Application {
 
     @Override
     public void onCreate() {
+        SpeechUtility.createUtility(getApplicationContext(), SpeechConstant.APPID +"=584a9834");
         super.onCreate();
         ImageLoaderUtil.initConfiguration(getApplicationContext());
         SDKInitializer.initialize(getApplicationContext());
@@ -52,5 +56,8 @@ public class BaseApplication extends Application {
         /*jpUSH*/
         JPushInterface.setDebugMode(true);
         JPushInterface.init(this);
+
+
+
     }
 }

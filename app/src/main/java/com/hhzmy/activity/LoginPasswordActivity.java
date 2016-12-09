@@ -16,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.hhzmy.bean.User;
+import com.hhzmy.httputil.Utils;
 import com.hhzmy.mis.redchildhyl.R;
 
 import org.greenrobot.eventbus.EventBus;
@@ -28,6 +29,9 @@ import cn.smssdk.SMSSDK;
 /*设置密码页面*/
 public class LoginPasswordActivity extends AppCompatActivity {
     private final static String GET_USER_TEL = "com.hhzmy.activity.tel";
+    public final static String KEY_TEL= "com.hhzmy.activity.telephone";
+    public final static String KEY_PASSWORD= "com.hhzmy.activity.password";
+    public  final static String KEY_ISCOMMIT= "com.hhzmy.activity.iscommit";
     private Boolean isPassShow=false;
     @BindView(R.id.et_loginTimes_authcode)
     EditText etLoginTimesAuthcode;
@@ -94,6 +98,9 @@ public class LoginPasswordActivity extends AppCompatActivity {
                     user.tel=extra;
                     user.password=password;
                     EventBus.getDefault().postSticky(user);
+                    Utils.putSP(this,KEY_ISCOMMIT,true);
+                    Utils.putSPString(this,KEY_TEL,extra);
+                    Utils.putSPString(this,KEY_PASSWORD,password);
                     startActivity(new Intent(this,LoginActivity.class));
                     finish();
 
