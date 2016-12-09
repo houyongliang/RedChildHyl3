@@ -17,7 +17,6 @@
     <string name="umeng_getinfo_title">获取用户信息</string>
     <string name="umeng_check_title">自检工具</string>
     <string name="umeng_menu_title">分享菜单模板</string>
-
     <string name="umeng_check_sign">检查签名</string>
     <string name="umeng_check_sina">检查新浪</string>
     <string name="umeng_check_wx">检查微信</string>
@@ -25,6 +24,8 @@
     <string name="umeng_check_qq">检查qq</string>
     <string name="umeng_check_fb">检查facebook</string>
     <string name="umeng_choose_style">选择分享类型</string>
-
     <string name="umeng_sharebutton_custom">自定义分享按钮</string>
+
+
+
 </resources>

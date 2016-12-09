@@ -1,1 +1,1 @@
-include ':app', ':gettuidemo'
+include ':app'

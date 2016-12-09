@@ -60,7 +60,6 @@ public class LoginActivity extends AppCompatActivity implements ImageView.OnClic
     ImageView ivRegister;
     @BindView(R.id.activity_login)
     LinearLayout activityLogin;
-
     @BindView(R.id.iv_clean_cont_pass)
     ImageView ivCleanContPass;
     @BindView(R.id.bt_login)

@@ -15,6 +15,7 @@ import com.umeng.socialize.UMShareAPI;
 
 import java.io.File;
 
+import cn.jpush.android.api.JPushInterface;
 import cn.smssdk.SMSSDK;
 
 import static com.baidu.location.b.g.I;
@@ -48,6 +49,8 @@ public class BaseApplication extends Application {
         Config.isUmengSina=false;
 //        Config.DEBUG = true;
         SMSSDK.initSDK(this, "19bbf6db20b0a", "9bea131ae19da79177c24091dbbb11c7");
-
+        /*jpUSH*/
+        JPushInterface.setDebugMode(true);
+        JPushInterface.init(this);
     }
 }
