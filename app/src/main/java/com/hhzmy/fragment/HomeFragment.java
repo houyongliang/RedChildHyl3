@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
+import android.support.percent.PercentRelativeLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.GridLayoutManager;
@@ -138,8 +139,10 @@ public class HomeFragment extends BaseFragment implements ViewPager.OnPageChange
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        initData();//初始化数据
+
         super.onActivityCreated(savedInstanceState);
+
+        initData();//初始化数据
     }
 
     @Override
@@ -233,9 +236,11 @@ public class HomeFragment extends BaseFragment implements ViewPager.OnPageChange
         ll_home = (LinearLayout) homeView.findViewById(R.id.ll_home);
         //动态设置vp高度
         int height = Tool.getScreenHeight(getActivity());
-        RelativeLayout.LayoutParams linearParams = (RelativeLayout.LayoutParams) vp_home_loop.getLayoutParams(); // 取控件mGrid当前的布局参数
-        linearParams.height = height / 4;// 当控件的高强制设成50象素
-        vp_home_loop.setLayoutParams(linearParams);
+//        PercentRelativeLayout.LayoutParams linearParams = (PercentRelativeLayout.LayoutParams) vp_home_loop.getLayoutParams(); // 取控件mGrid当前的布局参数
+     // RelativeLayout.LayoutParams linearParams = (RelativeLayout.LayoutParams) vp_home_loop.getLayoutParams(); // 取控件mGrid当前的布局参数
+//        ViewGroup.LayoutParams linearParams=new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT);
+       // linearParams.height = height / 4;// 当控件的高强制设成50象素
+       // vp_home_loop.setLayoutParams(linearParams);
 
         tv_scan.setOnClickListener(this);
 

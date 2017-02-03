@@ -1,35 +1,101 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
     tools:context="com.hhzmy.fragment.HomeFragment">
 
     <include
         android:id="@+id/inclu"
         layout="@layout/include_home_head"></include>
 
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/vp_home_loop"
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="#00ff00"
-       android:layout_below="@+id/inclu"></android.support.v4.view.ViewPager>
-    <LinearLayout
-        android:id="@+id/ll_home"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_alignRight="@id/vp_home_loop"
-        android:layout_alignBottom="@id/vp_home_loop"></LinearLayout>
+        android:layout_height="match_parent"
+        android:layout_below="@+id/inclu"
+        android:scrollbars="none">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_home"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#FFFFFF"
-        android:layout_below="@+id/ll_home"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"></android.support.v7.widget.RecyclerView>
+        <android.support.percent.PercentRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/vp_home_loop"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/colorWhite"
+                app:layout_heightPercent="35%">
+
+            </android.support.v4.view.ViewPager>
+
+
+            <LinearLayout
+                android:id="@+id/ll_home"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_alignBottom="@id/vp_home_loop"
+                android:layout_alignParentRight="true"
+                android:orientation="horizontal"
+                app:layout_heightPercent="3%"
+                app:layout_widthPercent="100%">
+
+            </LinearLayout>
+            <!--android:background="@color/colorAccent"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:layout_alignParentRight="true"-->
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_home"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/vp_home_loop"
+                android:background="#33ff0000"></android.support.v7.widget.RecyclerView>
+        </android.support.percent.PercentRelativeLayout>
+
+
+    </ScrollView>
+
 </RelativeLayout>
+
+
+    <!--<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"--><!--xmlns:app="http://schemas.android.com/apk/res-auto"--><!--xmlns:tools="http://schemas.android.com/tools"--><!--android:layout_width="match_parent"--><!--android:layout_height="match_parent"--><!--tools:context="com.hhzmy.fragment.HomeFragment">-->
+
+    <!--<include--><!--android:id="@+id/inclu"--><!--layout="@layout/include_home_head"--><!--android:layout_width="0dp"--><!--android:layout_height="0dp"--><!--app:layout_heightPercent="8%"--><!--app:layout_widthPercent="100%"></include>-->
+
+    <!--<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"--><!--xmlns:app="http://schemas.android.com/apk/res-auto"--><!--android:layout_width="match_parent"--><!--android:layout_height="0dp"--><!--android:layout_below="@+id/inclu"--><!--android:scrollbars="none"--><!--app:layout_heightPercent="92%">--><!--&lt;!&ndash;android:background="@color/colorYellow"&ndash;&gt;-->
+
+    <!--<com.hhzmy.view.PercentLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"--><!--xmlns:app="http://schemas.android.com/apk/res-auto"--><!--android:layout_width="match_parent"--><!--android:layout_height="match_parent"--><!--android:orientation="vertical"--><!--android:background="@color/colorAccent"--><!--android:clickable="true">-->
+
+    <!--<android.support.percent.PercentRelativeLayout--><!--android:layout_width="0dp"--><!--android:layout_height="0dp"--><!--app:layout_heightPercent="100%"--><!--app:layout_widthPercent="100%">-->
+
+    <!--<android.support.v4.view.ViewPager--><!--android:id="@+id/vp_home_loop"--><!--android:layout_width="match_parent"--><!--android:layout_height="0dp"-->
+
+    <!--android:background="@color/colorWhite"--><!--app:layout_heightPercent="35%"></android.support.v4.view.ViewPager>-->
+
+    <!--<LinearLayout--><!--android:id="@+id/ll_home"--><!--android:layout_width="wrap_content"--><!--android:layout_height="wrap_content"--><!--android:layout_alignBottom="@id/vp_home_loop"--><!--android:layout_toRightOf="@id/vp_home_loop"--><!--android:background="@color/colorAccent"--><!--android:orientation="horizontal"></LinearLayout>--><!--&lt;!&ndash;android:layout_alignParentBottom="true"&ndash;&gt;--><!--&lt;!&ndash;android:layout_alignParentRight="true"&ndash;&gt;--><!--<android.support.v7.widget.RecyclerView--><!--android:id="@+id/rv_home"--><!--android:layout_width="0dp"--><!--android:layout_height="0dp"--><!--app:layout_widthPercent="100%"--><!--android:background="@color/colorAccent"--><!--android:layout_below="@id/ll_home"--><!--app:layout_heightPercent="65%"></android.support.v7.widget.RecyclerView>--><!--</android.support.percent.PercentRelativeLayout>--><!--&lt;!&ndash;android:background="@color/colorAccent"&ndash;&gt;--><!--&lt;!&ndash;android:layout_alignBottom="@id/vp_home_loop"&ndash;&gt;-->
+
+
+    <!--</com.hhzmy.view.PercentLinearLayout>--><!--</ScrollView>-->
+
+    <!--</android.support.percent.PercentRelativeLayout>-->
+
+    <!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"--><!--xmlns:tools="http://schemas.android.com/tools"--><!--android:layout_width="match_parent"--><!--android:layout_height="match_parent"--><!--android:background="#ffffff"--><!--tools:context="com.hhzmy.fragment.HomeFragment">-->
+
+    <!--<include--><!--android:id="@+id/inclu"--><!--layout="@layout/include_home_head"></include>-->
+
+    <!--<ScrollView--><!--android:layout_width="match_parent"--><!--android:layout_height="match_parent"--><!--android:layout_below="@+id/inclu"--><!--android:scrollbars="none">-->
+
+    <!--<RelativeLayout--><!--android:layout_width="match_parent"--><!--android:layout_height="match_parent"--><!--android:orientation="vertical">-->
+
+    <!--<android.support.v4.view.ViewPager--><!--android:id="@+id/vp_home_loop"--><!--android:layout_width="match_parent"--><!--android:layout_height="200dp"--><!--android:background="#00ff00"></android.support.v4.view.ViewPager>-->
+
+    <!--<LinearLayout--><!--android:id="@+id/ll_home"--><!--android:layout_width="wrap_content"--><!--android:layout_height="wrap_content"--><!--android:layout_alignBottom="@id/vp_home_loop"--><!--android:layout_alignRight="@id/vp_home_loop"--><!--android:orientation="horizontal"></LinearLayout>-->
+
+    <!--<android.support.v7.widget.RecyclerView--><!--android:id="@+id/rv_home"--><!--android:layout_width="wrap_content"--><!--android:layout_height="wrap_content"--><!--android:layout_alignParentLeft="true"--><!--android:layout_alignParentStart="true"--><!--android:layout_below="@+id/ll_home"--><!--android:background="#FFFFFF"></android.support.v7.widget.RecyclerView>-->
+
+    <!--</RelativeLayout>-->
+
+
+    <!--</ScrollView>-->
+
+    <!--</RelativeLayout>-->

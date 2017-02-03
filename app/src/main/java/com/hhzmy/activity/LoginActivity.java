@@ -185,7 +185,7 @@ public class LoginActivity extends AppCompatActivity implements ImageView.OnClic
         };
         etLoginName.addTextChangedListener(watcher);
         /*获取登录名字，并对 登陆的手机号进行正则验证，去掉中间和首尾空格*/
-        etName = etLoginName.getText().toString().replaceAll(" ", "").trim();
+
 
         TextWatcher watcherPass = new TextWatcher() {
 
@@ -241,10 +241,12 @@ public class LoginActivity extends AppCompatActivity implements ImageView.OnClic
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.bt_login:
-                if (!isMobileNO(this, etName) || !LoginUtil.isPasswordForm(etPassword)) {
+//                || !LoginUtil.isPasswordForm(etPassword)
+                etName = etLoginName.getText().toString().replaceAll(" ","").trim();
+                if (!isMobileNO(this, etName) ) {
                     Toast.makeText(this, "输入账号密码不正确请重新输入", Toast.LENGTH_SHORT).show();
                 } else {
-                    sendPost(etName, etPassword);
+//                    sendPost(etName, etPassword);
                     startActivity(new Intent(this, MainActivity.class));/*跳转到主页面*/
 //                    finish();
                 }

@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.hhzmy.activity.BaiduMapActivity;
@@ -38,6 +39,38 @@ public class MyebuyFragment extends BaseFragment implements View.OnClickListener
     TextView tvFragMyName;
     @BindView(R.id.bt_xunfei)
     Button btXunfei;
+    @BindView(R.id.touxiang)
+    ImageView touxiang;
+    @BindView(R.id.shoujihao)
+    TextView shoujihao;
+    @BindView(R.id.shezhi)
+    TextView shezhi;
+    @BindView(R.id.xiaoxi)
+    ImageView xiaoxi;
+    @BindView(R.id.zhanghuguanli)
+    TextView zhanghuguanli;
+    @BindView(R.id.daizhifu)
+    LinearLayout daizhifu;
+    @BindView(R.id.daishouhuo)
+    LinearLayout daishouhuo;
+    @BindView(R.id.daipingjia)
+    LinearLayout daipingjia;
+    @BindView(R.id.tuihuanweixiu)
+    LinearLayout tuihuanweixiu;
+    @BindView(R.id.shangpinshoucang)
+    LinearLayout shangpinshoucang;
+    @BindView(R.id.chakanyunzuan)
+    LinearLayout chakanyunzuan;
+    @BindView(R.id.zuji)
+    LinearLayout zuji;
+    @BindView(R.id.youhuiquan)
+    LinearLayout youhuiquan;
+    @BindView(R.id.bangdingshezhi)
+    LinearLayout bangdingshezhi;
+    @BindView(R.id.zhanghuanquan)
+    LinearLayout zhanghuanquan;
+    @BindView(R.id.activity_my)
+    LinearLayout activityMy;
     private LoginThread loginThread;
 
     public MyebuyFragment() {
@@ -53,21 +86,6 @@ public class MyebuyFragment extends BaseFragment implements View.OnClickListener
         ButterKnife.bind(this, view);
         btBaidumap.setOnClickListener(this);
         btXunfei.setOnClickListener(this);
-//        String pic=Utils.getSPString(getActivity(),"profile_image_url");
-//        String name=Utils.getSPString(getActivity(),"screen_name");
-//        String gender=Utils.getSPString(getActivity(),"gender");
-//        if(!TextUtils.isEmpty(pic)){
-//            Tool.displayImage(getActivity(),ivFragMyHeadPic,pic);
-//        }
-//        if(!TextUtils.isEmpty(name)){
-//            tvFragMyName.setText(name);
-//        }
-//        if(!TextUtils.isEmpty(gender)){
-//            Tool.displayImage(getActivity(),ivFragMyHeadPic,pic);
-//            tvFragMyName.append("   "+gender);
-//        }
-
-
         return view;
     }
 
@@ -89,22 +107,13 @@ public class MyebuyFragment extends BaseFragment implements View.OnClickListener
         loginThread = EventBus.getDefault().getStickyEvent(LoginThread.class);
         if (loginThread != null) {
             Tool.displayImage(getActivity(), ivFragMyHeadPic, loginThread.url);
+            Tool.displayImage(getActivity(), touxiang, loginThread.url);
+
             tvFragMyName.setText(loginThread.name);
             tvFragMyName.append("   " + loginThread.gender);
-
+            shoujihao.setText(loginThread.name);
         }
-
-//        EventBus.getDefault().cancelEventDelivery(LoginThread.class) ;
-//        EventBus.getDefault().register(this);
     }
-
-    //    @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)//注意此处需要增加sticky = true，表明处理置顶事件
-//    public void handleEvent(LoginThread loginThread) {
-//        // UI updates must run on MainThread
-//        Tool.displayImage(getActivity(),ivFragMyHeadPic,loginThread.url);
-//        tvFragMyName.setText(loginThread.name);
-//        tvFragMyName.append("   "+loginThread.gender);
-//    }
 
 
     @Override

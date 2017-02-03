@@ -65,8 +65,10 @@
         android:id="@+id/shop_lin2"
         android:layout_width="match_parent"
         android:layout_height="55dp"
+        android:orientation="horizontal"
         android:layout_alignParentBottom="true"
-        android:orientation="horizontal">
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <RelativeLayout
             android:layout_width="0dp"

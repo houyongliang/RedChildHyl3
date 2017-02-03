@@ -87,12 +87,13 @@
             android:name="UMENG_APPKEY"
             android:value="58466af66e27a47901001e04" />
 
-        <activity android:name="com.hhzmy.activity.MainActivity">
+        <activity android:name="com.hhzmy.activity.MainActivity" android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity android:name="com.hhzmy.activity.SplashActivity" />
         <activity android:name="com.hhzmy.activity.FirstloadActivity" />
@@ -120,7 +121,9 @@
 
         <activity
             android:name="com.hhzmy.activity.LoginActivity"
-            android:launchMode="singleInstance"></activity>
+            android:launchMode="singleInstance">
+
+        </activity>
         <activity android:name="com.hhzmy.activity.LoginPhoneActivity" />
         <activity android:name="com.hhzmy.activity.LoginPassActivity" />
         <activity android:name="com.hhzmy.activity.LoginPasswordActivity" />
